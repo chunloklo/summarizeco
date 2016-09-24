@@ -7,11 +7,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def textform(name = None):
-    return render_template("hello.html", name = name)
+    return render_template("hello2.html", name = name)
 
 @app.route('/', methods=['POST'])
 def testform_post():
-    print("working...")
     text = request.form['text']
     s=Summary()
     processed_text = s.getSummary(text)
