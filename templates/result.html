@@ -16,8 +16,16 @@
         <br>
         <h2> Buzzwords: {{buzzWords}} </h2>
         <br>
-
-
+        <ul>
+        <h2>Quick Job Listings:</h2>
+        <h3>
+        <ul>
+        {% for job in jobList %}
+            <li style="list-style-type: none;">{{job}}</li>
+        {% endfor %}
+        </h3>
+        </ul>
+        <br>
     </div>
 </header>
 </center>

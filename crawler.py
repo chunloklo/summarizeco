@@ -11,7 +11,6 @@ def indeedSearch(keyword = "", company = "", jobType = ""):
     "&sort=&start=&limit=100&fromage=all&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2"
     response = urllib.request.urlopen(url)
     json_data = json.loads(response.read().decode("utf-8"))
-    print(json_data["query"])
     jobList = []
     for jobs in json_data["results"]:
         if jobs["jobtitle"] not in jobList:
@@ -26,13 +25,14 @@ def jobSearch(keyword = "", company = "", jobType = ""):
     for job in jobList1:
         if job not in jobList:
             jobList.append(job)
+    jobList = jobList[:6]
     return jobList
 
 
-keyword = ""
-company = "dfsfsdf"
-jobType = ""
-#internship, full time, part time
-jobList = jobSearch(keyword, company, jobType)
-for job in jobList:
-    print(job)
+# keyword = ""
+# company = "dfsfsdf"
+# jobType = ""
+# #internship, full time, part time
+# jobList = jobSearch(keyword, company, jobType)
+# for job in jobList:
+#     print(job)
