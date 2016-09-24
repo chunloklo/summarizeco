@@ -1,8 +1,21 @@
 import wikipedia
 
 class Summary:
+    def correctName(self,name):
+        results = wikipedia.search(name,3)
+        for result in results:
+            try:
+                for category in wikipedia.WikipediaPage(result).categories:
+                    if "software" in category or "comput" in category or "internet" in category:
+                        return result
+            except:
+                print("Error")
+        return ""
     def getSummary(self,name):
         try:
+            name=self.correctName(name)
+            if(name==""):
+                return "Company Not Found"
             s=wikipedia.summary(name, sentences=2)
             return s
         except wikipedia.exceptions.DisambiguationError as ex:

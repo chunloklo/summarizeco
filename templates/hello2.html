@@ -2,28 +2,31 @@
 <html lang="en">
 <head>
     <title> Company Summary App </title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styalized.css') }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 
 <body>
+<header id="top" class="header">
+        <div class="text-vertical-center"> <center>
+            <h1>WEB APP NAME</h1>
+            <h3>Enter Company Name</h3>
+            <h4>Do it for harambe</h4>
+            <form action="." method="POST">
+                    <input type="text" name="text"> <h4>Major:</h4>
+                     <select name= "major">
+                        <option value="Computer+Science">Computer Science</option>
+                        <option value="Computer+Science">Computer Science</option>
+                        <option value="Computer+Science">Computer Science</option>
+                        <option value="Computer+Science">Computer Science</option>
+                    </select> &nbsp; &nbsp;<input type="submit" name="text-form" value="Send">
 
-    <div class="jumbotron text-center">
-        <h1>Enter company names</h1>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4">
-            <center>
-                <form action="." method="POST">
-                    <h3>Do it for harambe</h3> <input type="text" name="text">
-                    <input type="submit" name="text-form" value="Send">
                 </form>
             </center>
-            </div>
         </div>
-    </div>
+    </header>
+
 </body>
 
 </html>
