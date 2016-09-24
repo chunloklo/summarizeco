@@ -1,4 +1,5 @@
 import subprocess
 
-subprocess.call('py -2 news.py', shell=True)
-
+def callNews(companyName):
+    s = 'py -2 news.py ' + companyName;
+    subprocess.call(s, shell=True)
