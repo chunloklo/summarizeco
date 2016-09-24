@@ -20,11 +20,18 @@ def testform_post():
 
     bW=BuzzWords()
     b = bW.findBuzzWords(text, 1)
-    processed_buzz = b[0]+", "+b[1]+", "+b[2]
+    processed_buzz = ""
+    if len(b) >= 3:
+        processed_buzz = b[0]+", "+b[1]+", "+b[2]
+    elif len(b) ==2:
+        processed_buzz = b[0]+", "+b[1]
+    elif len(b) == 1:
+        processed_buzz = b[0]
+
 
     jobList = jobSearch(major, "text", "")
     return render_template("result.html", company = text,
-        summary = processed_text, buzzWords = processed_buzz)
+        summary = processed_text, buzzWords = processed_buzz, jobList= jobList)
 
 if __name__ == '__main__':
     app.run()
