@@ -5,6 +5,7 @@ class Summary:
         try:
             s=wikipedia.summary(name, sentences=2)
             return s
-        except:
-            return "Company not found"
+        except wikipedia.exceptions.DisambiguationError as ex:
+            s=wikipedia.summary(ex.args[1][0],sentences=2)
+            return s
 

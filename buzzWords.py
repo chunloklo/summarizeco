@@ -13,8 +13,13 @@ class BuzzWords:
             buzzWords[item]=0
         return buzzWords
     def getContents(self,name):
-        content = wikipedia.page(wikipedia.search(name)[0]).content
-        return content
+        try:
+            content = wikipedia.page(name).content
+            return content
+        except wikipedia.exceptions.DisambiguationError as ex:
+            content = wikipedia.page(ex.args[1][0]).content
+            return content
+
 
     def findBuzzWords(self,name,k):
         contents = self.getContents(name)
