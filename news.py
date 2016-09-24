@@ -23,7 +23,7 @@ def retrieveNews(companyName):
             articleSet.add(j['articles']['results'][total]['title']+'^'+j['articles']['results'][total]['url']+'^'+j['articles']['results'][total]['date']+'\n')
             #print j['articles']['results'][total]['title'],j['articles']['results'][total]['url'],j['articles']['results'][total]['date']
         total+=1
-        if total == 39:
+        if total == 49:
             break;
     with open("articles.txt", "w") as text_file:
             text_file.write("".join(str(e) for e in articleSet))
