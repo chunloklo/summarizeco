@@ -8,7 +8,8 @@
 
 html,
 body {
-    background: url(../img/bg.jpg) no-repeat center center scroll;
+    background: url(../img/bg.gif) no-repeat center center scroll;
+    background-size: cover;
 }
 
 body {
