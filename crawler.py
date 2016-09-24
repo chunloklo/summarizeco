@@ -19,6 +19,8 @@ def indeedSearch(keyword = "", company = "", jobType = ""):
     return jobList
 
 def jobSearch(keyword = "", company = "", jobType = ""):
+    company = "+".join(company.split())
+    print(company)
     jobList = indeedSearch(keyword, company, jobType)
     jobList1 = indeedSearch("", company, jobType)
     for job in jobList1:
@@ -27,14 +29,10 @@ def jobSearch(keyword = "", company = "", jobType = ""):
     return jobList
 
 
-# keyword = "computer+science"
-# company = "Uptake"
-# jobType = "internship"
-# #internship, full time, part time
-# jobList = indeedSearch(keyword, company, jobType)
-# jobList1 = indeedSearch("", company, jobType)
-# for job in jobList1:
-#     if job not in jobList:
-#         jobList.append(job)
-# for job in jobList:
-#     print(job)
+keyword = ""
+company = "dfsfsdf"
+jobType = ""
+#internship, full time, part time
+jobList = jobSearch(keyword, company, jobType)
+for job in jobList:
+    print(job)

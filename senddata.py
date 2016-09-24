@@ -18,10 +18,9 @@ def testform_post():
     s=Summary()
     processed_text = s.getSummary(text)
 
-#well this doesn't work
     bW=BuzzWords()
     b = bW.findBuzzWords(text, 1)
-    processed_buzz = b[0]+","+b[1]+","+b[2]
+    processed_buzz = b[0]+", "+b[1]+", "+b[2]
 
     jobList = jobSearch(major, "text", "")
     return render_template("result.html", company = text,
