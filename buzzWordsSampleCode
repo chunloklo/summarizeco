@@ -1,0 +1,9 @@
+#import these
+from buzzWords import BuzzWords
+
+
+
+#put this in processing function
+bW=BuzzWords()
+b=bW.findBuzzWords(text,1)
+processed_text=b[0]+","+b[1]+","+b[2]
