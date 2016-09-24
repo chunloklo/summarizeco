@@ -1,6 +1,15 @@
 import re
 import wikipedia
 class BuzzWords:
+    def correctName(self,name):
+        results = wikipedia.search(name,3)
+        for result in results:
+            try:
+                for category in wikipedia.WikipediaPage(result).categories:
+                    if "software" in category or "computer" in category:
+                        return result
+            except:
+                True
     def getBuzzWords(self):
         buzzWords={}
         with open("buzzWords.txt") as f:
@@ -22,6 +31,7 @@ class BuzzWords:
 
 
     def findBuzzWords(self,name,k):
+        name=self.correctName(self,name)
         contents = self.getContents(name)
 
         buzzWords=self.getBuzzWords()
