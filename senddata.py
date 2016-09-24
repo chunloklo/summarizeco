@@ -3,6 +3,7 @@ from flask import request
 from flask import render_template
 from summary import Summary
 from crawler import jobSearch
+from buzzWords import BuzzWords
 
 app = Flask(__name__)
 
@@ -16,8 +17,15 @@ def testform_post():
     major = request.form['major']
     s=Summary()
     processed_text = s.getSummary(text)
+
+#well this doesn't work
+    bW=BuzzWords()
+    b = bW.findBuzzWords(text, 1)
+    processed_buzz = b[0]+","+b[1]+","+b[2]
+
     jobList = jobSearch(major, "text", "")
-    return render_template("result.html", company = text, summary = processed_text)
+    return render_template("result.html", company = text,
+        summary = processed_text, buzzWords = processed_buzz)
 
 if __name__ == '__main__':
     app.run()
