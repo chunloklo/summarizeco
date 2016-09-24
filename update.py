@@ -7,9 +7,12 @@ def indeedSearch(company = ""):
         "&output=rss"
     response = feedparser.parse(url)
     responses = []
-    responses.append(response['entries'][0]['title'])
-    responses.append(response['entries'][1]['title'])
-    responses.append(response['entries'][2]['title'])
+    if(response['entries'].length >= 1):
+        responses.append(response['entries'][0]['title'])
+    if(response['entries'].length >= 2):
+        responses.append(response['entries'][1]['title'])
+    if(response['entries'].length >= 3):
+        responses.append(response['entries'][2]['title'])
     return responses
 # def jobSearch(keyword = "", company = "", jobType = ""):
 #     jobList = indeedSearch(keyword, company, jobType)
@@ -19,4 +22,4 @@ def indeedSearch(company = ""):
 #             jobList.append(job)
 #     return jobList
 
-print(indeedSearch("ionic+security"))
+# print(indeedSearch("ionic+security"))
