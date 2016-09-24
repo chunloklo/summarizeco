@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{{company}}</title>
+    <title> Company Summary: {{company}} </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styalized_results.css') }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
-    <h1>{{company}}</h1>
-    <h1>Summary: {{summary}}</h1>
-    <ul id="navigation">
-    {% for item in navigation %}
-        <li><a href="{{ item.href }}">{{ item.caption }}</a></li>
-    {% endfor %}
-    </ul>
+<center>
+<header id="top" class="header">
+    <div class="text-vertical-center">
+        <br><br>
+        <h1>{{company}} Summary</h1>
+        <h2>{{summary}}</h2>
 
-    {{ a_variable }}
-
-    {# a comment #}
+    </div>
+</header>
+</center>
 </body>
 </html>
