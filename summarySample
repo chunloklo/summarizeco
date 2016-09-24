@@ -1,0 +1,9 @@
+#import these
+from summary import Summary
+
+
+
+#put this in processing function
+s=Summary()
+sText=s.getSummary(text)
+processed_text=sText

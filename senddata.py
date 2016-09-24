@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import request
 from flask import render_template
+from summary import Summary
 
 app = Flask(__name__)
 
@@ -12,7 +13,8 @@ def textform(name = None):
 def testform_post():
     print("working...")
     text = request.form['text']
-    processed_text = text.upper()
+    s=Summary()
+    processed_text = s.getSummary(text)
     return processed_text
 
 if __name__ == '__main__':
