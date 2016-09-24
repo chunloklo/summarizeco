@@ -18,7 +18,7 @@ def indeedSearch(keyword = "", company = "", jobType = ""):
             jobList.append(jobs["jobtitle"])
     return jobList
 
-def refinedSearch(keyword = "", company = "", jobType = ""):
+def jobSearch(keyword = "", company = "", jobType = ""):
     jobList = indeedSearch(keyword, company, jobType)
     jobList1 = indeedSearch("", company, jobType)
     for job in jobList1:
