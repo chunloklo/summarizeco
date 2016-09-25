@@ -11,6 +11,8 @@ class BuzzWords:
                         return result
             except:
                 print("Error")
+        if(len(results)>=1):
+            return result[0]
         return ""
     def getBuzzWords(self):
         buzzWords={}
