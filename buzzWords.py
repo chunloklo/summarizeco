@@ -2,10 +2,11 @@ import re
 import wikipedia
 class BuzzWords:
     def correctName(self,name):
-        results = wikipedia.search(name,3)
+        results = wikipedia.search(name,7)
         for result in results:
             try:
                 for category in wikipedia.WikipediaPage(result).categories:
+                    category=category.lower()
                     if "software" in category or "comput" in category or "internet" in category:
                         return result
             except:
