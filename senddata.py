@@ -7,7 +7,6 @@ from buzzWords import BuzzWords
 from update import newsSearch
 
 app = Flask(__name__)
-app.config["SECRET_KEY"]
 
 @app.route('/')
 def textform(name = None):
@@ -23,7 +22,13 @@ def testform_post():
 
     bW=BuzzWords()
     b = bW.findBuzzWords(text, 1)
-    processed_buzz = b[0]+", "+b[1]+", "+b[2]
+    processed_buzz=""
+    if(len(b)>=3):
+        processed_buzz = b[0]+", "+b[1]+", "+b[2]
+    elif(len(b)==2):
+        processed_buzz = b[0]+", "+b[1]
+    elif(len(b)==1):
+        processed_buzz = b[0]
 
     news = newsSearch(text)
 
