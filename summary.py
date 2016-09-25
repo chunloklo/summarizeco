@@ -7,7 +7,7 @@ class Summary:
             try:
                 for category in wikipedia.WikipediaPage(result).categories:
                     category = category.lower()
-                    if "software" in category or "comput" in category or "internet" in category:
+                    if "software" in category or "comput" in category or "internet" in category or "invest"in category:
                         return result
             except:
                 print("Error")
