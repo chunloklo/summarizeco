@@ -7,10 +7,12 @@ class BuzzWords:
             try:
                 for category in wikipedia.WikipediaPage(result).categories:
                     category=category.lower()
-                    if "software" in category or "comput" in category or "internet" in category:
+                    if "software" in category or "comput" in category or "internet" in category or "invest"in category:
                         return result
             except:
                 print("Error")
+        if(len(results)>=1):
+            return result[0]
         return ""
     def getBuzzWords(self):
         buzzWords={}
