@@ -2,15 +2,20 @@ import wikipedia
 
 class Summary:
     def correctName(self,name):
-        results = wikipedia.search(name,7)
+        results = wikipedia.search(name,5)
+        atLeastCompany=[]
         for result in results:
             try:
                 for category in wikipedia.WikipediaPage(result).categories:
-                    category = category.lower()
+                    category=category.lower()
+                    if "compan" in category:
+                        atLeastCompany.append(result)
                     if "software" in category or "comput" in category or "internet" in category or "invest"in category:
                         return result
             except:
                 print("Error")
+        for company in atLeastCompany:
+            return company
         return ""
     def getSummary(self,name):
         try:

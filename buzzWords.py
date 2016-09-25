@@ -2,17 +2,20 @@ import re
 import wikipedia
 class BuzzWords:
     def correctName(self,name):
-        results = wikipedia.search(name,7)
+        results = wikipedia.search(name,5)
+        atLeastCompany=[]
         for result in results:
             try:
                 for category in wikipedia.WikipediaPage(result).categories:
                     category=category.lower()
+                    if "compan" in category:
+                        atLeastCompany.append(result)
                     if "software" in category or "comput" in category or "internet" in category or "invest"in category:
                         return result
             except:
                 print("Error")
-        if(len(results)>=1):
-            return result[0]
+        for company in atLeastCompany:
+            return company
         return ""
     def getBuzzWords(self):
         buzzWords={}
@@ -29,15 +32,15 @@ class BuzzWords:
         try:
             content = wikipedia.page(name).content
             return content
-        except wikipedia.exceptions.DisambiguationError as ex:
-            content = wikipedia.page(ex.args[1][0]).content
-            return content
+        except:
+            return ""
 
 
     def findBuzzWords(self,name,k):
         name=self.correctName(name)
         if(name==""):
             print("no cs company found for query")
+
         contents = self.getContents(name)
 
         buzzWords=self.getBuzzWords()
@@ -63,7 +66,7 @@ class BuzzWords:
         approvedBuzzWords=sorted(approvedBuzzWords,key=lambda x: x[1])
         approvedBuzzWords.reverse()
 
-        finalArray=[]
+        finalArray=list()
         for a in approvedBuzzWords:
             finalArray.append(a[0])
         return finalArray
