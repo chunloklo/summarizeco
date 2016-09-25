@@ -24,7 +24,7 @@ def testform_post():
 
     jobList = jobSearch(major, "text", "")
     return render_template("result.html", company = text,
-        summary = processed_text, buzzWords = processed_buzz)
+        summary = processed_text, buzzWords = processed_buzz, jobList = jobList)
 
 if __name__ == '__main__':
     app.run()
