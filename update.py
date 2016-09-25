@@ -2,16 +2,16 @@ import urllib.request
 from urllib.request import urlopen
 import feedparser
 
-def indeedSearch(company = ""):
+def newsSearch(company = ""):
     url = "http://news.google.com/news?q={0}".format(company) + \
         "&output=rss"
     response = feedparser.parse(url)
     responses = []
-    if(response['entries'].length >= 1):
+    if(len(response['entries']) >= 1):
         responses.append(response['entries'][0]['title'])
-    if(response['entries'].length >= 2):
+    if(len(response['entries']) >= 2):
         responses.append(response['entries'][1]['title'])
-    if(response['entries'].length >= 3):
+    if(len(response['entries']) >= 3):
         responses.append(response['entries'][2]['title'])
     return responses
 # def jobSearch(keyword = "", company = "", jobType = ""):

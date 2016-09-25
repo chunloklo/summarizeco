@@ -26,6 +26,14 @@
         </h3>
         </ul>
         <br>
+        <h2>News Stories</h2>
+        <ul>
+        <h3>
+        {% for article in news %}
+            <li style="list-style-type: none;">{{article}}</li>
+        {% endfor %}
+        </h3>
+        </ul>
     </div>
 </header>
 </center>

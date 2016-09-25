@@ -4,6 +4,7 @@ from flask import render_template
 from summary import Summary
 from crawler import jobSearch
 from buzzWords import BuzzWords
+from update import newsSearch
 
 app = Flask(__name__)
 
@@ -15,6 +16,7 @@ def textform(name = None):
 def testform_post():
     text = request.form['text']
     major = request.form['major']
+    jobType = request.form['jobType']
     s=Summary()
     processed_text = s.getSummary(text)
 
@@ -22,9 +24,12 @@ def testform_post():
     b = bW.findBuzzWords(text, 1)
     processed_buzz = b[0]+", "+b[1]+", "+b[2]
 
-    jobList = jobSearch(major, "text", "")
+    news = newsSearch(text)
+
+    jobList = jobSearch(major, text, jobType)
     return render_template("result.html", company = text,
-        summary = processed_text, buzzWords = processed_buzz, jobList = jobList)
+        summary = processed_text, buzzWords = processed_buzz,
+            jobList = jobList, news = news)
 
 if __name__ == '__main__':
     app.run()
