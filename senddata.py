@@ -7,6 +7,7 @@ from buzzWords import BuzzWords
 from update import newsSearch
 
 app = Flask(__name__)
+app.config["SECRET_KEY"]
 
 @app.route('/')
 def textform(name = None):

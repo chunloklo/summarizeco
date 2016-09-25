@@ -18,8 +18,8 @@
         <br>
         <ul>
         <h2>Quick Job Listings:</h2>
-        <h3>
         <ul>
+        <h3>
         {% for job in jobList %}
             <li style="list-style-type: none;">{{job}}</li>
         {% endfor %}
@@ -37,5 +37,10 @@
     </div>
 </header>
 </center>
+<div style="position: fixed; bottom: 0; right: 0; width: 100px; text-align:right;>
+    <span style="position: absolute; bottom: 0; right: 0;" id=indeed_at><a href="http://www.indeed.com/">jobs</a> by <a
+        href="http://www.indeed.com/" title="Job Search"><img
+        src="http://www.indeed.com/p/jobsearch.gif" style="border: 0; " alt="Indeed job search"></a></span>
+    </div>
 </body>
 </html>
